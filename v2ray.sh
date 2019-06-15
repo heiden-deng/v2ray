@@ -1515,8 +1515,8 @@ change_domain() {
 	if [[ $v2ray_transport == [45] ]] && [[ $caddy ]]; then
 		while :; do
 			echo
-			echo -e "请输入一个 $magenta正确的域名$none，一定一定一定要正确，不！能！出！错！"
-			read -p "$(echo -e "(当前域名: ${cyan}$domain$none):") " new_domain
+			echo -e "please input  $magenta right domain $none，一定一定一定要正确，不！能！出！错！"
+			read -p "$(echo -e "(current domain: ${cyan}$domain$none):") " new_domain
 			[ -z "$new_domain" ] && error && continue
 			if [[ $new_domain == $domain ]]; then
 				echo
@@ -1590,7 +1590,7 @@ change_path_config() {
 	if [[ $v2ray_transport == [45] ]] && [[ $caddy && $is_path ]]; then
 		echo
 		while :; do
-			echo -e "请输入想要 ${magenta}用来分流的路径$none , 例如 /233blog , 那么只需要输入 233blog 即可"
+			echo -e "please input path ${magenta}用来分流的路径$none , 例如 /233blog , 那么只需要输入 233blog 即可"
 			read -p "$(echo -e "(当前分流的路径: [${cyan}/${path}$none]):")" new_path
 			[[ -z $new_path ]] && error && continue
 
@@ -1746,7 +1746,7 @@ domain_check() {
 		echo
 		echo -e "$red check domain parse error....$none"
 		echo
-		echo -e " 你的域名: $yellow$new_domain$none 未解析到: $cyan$ip$none"
+		echo -e " 你的域名: $yellow$new_domain$none cannot parse: $cyan$ip$none"
 		echo
 		echo -e " 你的域名当前解析到: $cyan$test_domain$none"
 		echo
@@ -1822,7 +1822,7 @@ blocked_hosts() {
 		echo
 		echo -e "$yellow 1. $none Open adv block"
 		echo
-		echo -e "$yellow 2. $none关闭 广告拦截"
+		echo -e "$yellow 2. $none cloee adv block"
 		echo
 		echo "备注: 广告拦截是基于 域名 拦截的..所以也许会造成浏览网页的时候出现部分元素留白..或者其他问题"
 		echo
@@ -2158,7 +2158,7 @@ create_v2ray_config_text() {
 	if [[ $v2ray_transport == [45] ]]; then
 		if [[ ! $caddy ]]; then
 			echo
-			echo " 警告！请自行配置 TLS...教程: https://233v2.com/post/3/"
+			echo " 警告！pleaes config  TLS self...教程: https://233v2.com/post/3/"
 		fi
 		echo
 		echo "地址 (Address) = ${domain}"
@@ -2859,7 +2859,7 @@ reinstall)
 	if [[ $is_uninstall_v2ray ]]; then
 		cd
 		cd - >/dev/null 2>&1
-		bash <(curl -s -L https://git.io/v2ray.sh)
+		bash <(curl -s -L https://github.com/heiden-deng/v2ray/master/v2ray.sh)
 	fi
 	;;
 [aA][Ii] | [Dd])
